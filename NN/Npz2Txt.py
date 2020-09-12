@@ -1,7 +1,7 @@
 import numpy as np
 
-DATASET_PATH = 'C:\\Users\\guandeyu1\\Documents\\Code\\PFNN\\'
-OUTPUT_PATH = 'C:\\Users\\guandeyu1\\Documents\\Unity\\AI4Animation\\TensorFlow\\SIGGRAPH_2017\\data'
+DATASET_PATH = './'
+OUTPUT_PATH = '../output'
 
 dataset = np.load(DATASET_PATH + 'database.npz')
 X = dataset['Xun'].astype(np.float32)

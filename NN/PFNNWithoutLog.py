@@ -10,7 +10,6 @@ tf_config.gpu_options.allow_growth = True
 # Config
 EPOCH = 20
 BATCH_SIZE = 32
-# DATASET_PATH = "C:\\Users\\guandeyu1\\Documents\\Code\\PFNN\\"
 DATASET_PATH = "./data/myown/test/"
 LEARNING_RATE = 0.0001
 BETA_1 = 0.9

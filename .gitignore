@@ -1,7 +1,11 @@
-NN/data
-NN/result
+NN/data/myown
 NN/model
 NN/log
 
 *.pyc
+*.npz
 __pycache__/
+
+*.vs/
+
+features.bin

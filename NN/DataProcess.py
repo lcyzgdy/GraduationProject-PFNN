@@ -12,7 +12,7 @@ from Quaternions import Quaternions
 import Animation as Animation
 import BVH as BVH
 
-DATASET_PATH = "C:\\Users\\guandeyu1\\Documents\\Code\\PFNN\\"
+DATASET_PATH = "./data"
 
 
 def mask(xMean, xStd, yMean, yStd):
@@ -227,7 +227,7 @@ def generate_database():
 
     """ Load Terrain Patches """
 
-    patches_database = np.load('C:\\Users\\guandeyu1\\Documents\\Code\\PFNN\\patches.npz')
+    patches_database = np.load('./data/patches.npz')
     patches = patches_database['X'].astype(np.float32)
     patches_coord = patches_database['C'].astype(np.float32)
 
@@ -813,7 +813,7 @@ def generate_database_with_feature_map():
 
     """ Load Terrain Patches """
 
-    patches_database = np.load('C:\\Users\\guandeyu1\\Documents\\Code\\PFNN\\patches.npz')
+    patches_database = np.load('./data/patches.npz')
     patches = patches_database['X'].astype(np.float32)
     patches_coord = patches_database['C'].astype(np.float32)
 
@@ -1189,7 +1189,7 @@ def generate_database_with_feature_map():
 
         """ Load Data """
 
-        anim, names, _ = BVH.load('C:/Users/guandeyu1/Documents/Code/PFNN/' + data)
+        anim, names, _ = BVH.load(data)
         anim.offsets *= to_meters
         anim.positions *= to_meters
         anim = anim[::2]
@@ -1197,7 +1197,7 @@ def generate_database_with_feature_map():
         """ Load Phase / Gait """
 
         feature_map = np.loadtxt(data.replace('.bvh', '.map'), dtype=np.float32)[::2]
-        gait = np.loadtxt(('C:/Users/guandeyu1/Documents/Code/PFNN/' + data).replace('.bvh', '.gait'))[::2]
+        gait = np.loadtxt((data).replace('.bvh', '.gait'))[::2]
 
         """ Merge Jog / Run and Crouch / Crawl """
 
@@ -1214,7 +1214,7 @@ def generate_database_with_feature_map():
 
         Xc, Yc, Fc = process_data(anim, feature_map, gait, type=type)
 
-        with open(('C:/Users/guandeyu1/Documents/Code/PFNN/' + data).replace('.bvh', '_footsteps.txt'), 'r') as f:
+        with open((data).replace('.bvh', '_footsteps.txt'), 'r') as f:
             footsteps = f.readlines()
 
         """ For each Locomotion Cycle fit Terrains """
@@ -1283,7 +1283,7 @@ def generate_database_with_feature_map():
 
 
 def compute_mean_and_std():
-    folder = "C:\\Users\\guandeyu1\\Documents\\Code\\GraduationProject\\NN\\data\\animations\\"
+    folder = "./data/animations/"
     dataset = np.load(folder + 'database.npz')
     X = dataset['Xun'].astype(np.float32)
     Y = dataset['Yun'].astype(np.float32)
