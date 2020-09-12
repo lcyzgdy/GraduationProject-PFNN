@@ -1,2 +1,7 @@
 NN/data
 NN/result
+NN/model
+NN/log
+
+*.pyc
+__pycache__/
